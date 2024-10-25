@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Form, useNavigate } from "react-router-dom";
 import '../App.css';
-import '../cssPages/Login.css';
+import '../pages/cssPages/Login.css';
 import signinIcon from '../assets/images/signinIcon.png';
 import bannerImage from '../assets/images/AvdAssetsIcon.png';
 
