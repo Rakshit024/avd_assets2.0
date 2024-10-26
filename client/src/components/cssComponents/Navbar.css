@@ -1,88 +1,56 @@
-.navbar-main{
-    display: flex;
+/* navbar.css */
+.navbar-dash {
+  display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   background: white;
-  box-shadow: none;
-  padding: 2rem 1.5rem;
+  padding: 2rem;
   height: 100vh;
-  width: auto; /* Adjust the width of the sidebar */
-  position: fixed; /* Fixed to the left side */
+  width: auto;
   top: 0;
   left: 0;
   z-index: 100;
-  transition: all 0.3s ease;
 }
-.navbar-container{
-    margin-top: 20%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background: lightgrey;
-    height: auto;
-    width: auto;
-    border-radius: 10px;
-    padding: 30px;;
+
+.banner-image {
+  width: 150px;
+  margin-bottom: 2rem;
+
 }
-  .banner-image {
-    max-width: 300px;
-    margin-bottom: 2rem;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
 
-  .navbar-center {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 2rem;
-  }
+.navbar-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #f8fafc;
+  padding: 15px;
+  width: auto;
+  gap: 1rem;
+  text-align: center;
+}
 
-  .navbar-column {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 1.5rem;
-  }
+.navbar-all-product,
+.navbar-add-product {
+  color: black;
+  background: white;
+  border: 1px solid #ddd;
+  text-wrap: nowrap;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 8px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
 
-  .navbar-buttons {
-    margin-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .navbar-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: auto;
-  }
-
-  .navbar-all-product,.navbar-add-product {
-    color: black;
-    background: white;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    box-shadow: none;
-    border-style:solid;
-    border-width: 1px;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    text-align: center;
-    padding: 5px;
-    cursor: pointer;
-    &:hover{
-      border-style: solid;
-      border-color: #5c59e8;
-      background: #5c59e8;
-      border-width: 1px;
-      color: white;
-    }
-      &:focus{
-      color: white;
-      background: #5c59e8;
-      border-color: #5c59e8;
-    }
-  }
+.navbar-all-product:hover,
+.navbar-add-product:hover {
+  background: #5c59e8;
+  color: white;
+}

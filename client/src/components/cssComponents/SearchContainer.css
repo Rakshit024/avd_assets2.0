@@ -1,0 +1,33 @@
+/* SearchContainer.css */
+
+.search-container-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 16px;
+    margin-bottom: 16px;
+    gap:1rem;
+}
+
+.product-counter {
+    font-size: 1rem;
+    color: #333;
+}
+
+.search-box {
+    flex: 1;
+    max-width: 80%; /* Sets the search-box to cover 80% of the container */
+}
+
+.filter-box {
+    flex: 1;
+    max-width: 20%; /* Remaining 20% for the filter box */
+}
+
+label {
+    font-weight: bold;
+}
