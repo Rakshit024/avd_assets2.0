@@ -1,6 +1,8 @@
 // client/src/pages/Login.jsx
 import React, { useState } from "react";
 import { Form, useNavigate } from "react-router-dom";
+import {login,callAxiosApi} from "../utils/api_utils"
+import { toast } from "react-toastify";
 import '../App.css';
 import '../pages/cssPages/Login.css';
 import signinIcon from '../assets/images/signinIcon.png';
@@ -12,16 +14,35 @@ const Login = () => {
   const [errors, setErrors] = useState({ msg: "" });
   const navigate = useNavigate(); // Hook to handle navigation
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
     
-    // Check credentials
-    if (email === "admin" && password === "1234") {
-      navigate("/dashboard"); // Redirect to Dashboard on successful login
-    } else {
-      setErrors({ msg: "Invalid username or password" });
+  //   // Check credentials
+  //   if (email === "admin" && password === "1234") {
+  //     navigate("/dashboard"); // Redirect to Dashboard on successful login
+  //   } else {
+  //     setErrors({ msg: "Invalid username or password" });
+  //   }
+  // };
+
+  const loginAction = async() =>{
+    try{
+        const response = await callAxiosApi(login,{mobile: email, password: password});
+        let data = response.data.data
+        if(response.status == 200){
+          localStorage.setItem('user',JSON.stringify(data))
+          toast.success("login successful");
+          console.log("response", response);
+          navigate("/dashboard");
+        }
+        else{
+          setErrors({ msg: response.data.message });
+        } 
+      }
+    catch (error) {
+      console.error("Error:", error);
     }
-  };
+  }
 
   return (
     <div className="login-container">
@@ -33,7 +54,7 @@ const Login = () => {
         <div className="form-side">
           <img src={bannerImage} alt="Banner" className="banner-image" />
 
-          <Form method="POST" className="login-form" onSubmit={handleSubmit}>
+          <Form method="POST" className="login-form">
             <h4><b>Sign In</b></h4>
             {errors?.msg && <p style={{ color: "red" }}>{errors.msg}</p>}
             <div className="form-group">
@@ -64,7 +85,7 @@ const Login = () => {
               <input type="checkbox" id="remember" />
               <label htmlFor="remember">Remember me</label>
             </div>
-            <button type="submit" className="btn-signin">Sign In</button>
+            <button type="button" className="btn-signin" onClick={loginAction}>Sign In</button>
           </Form>
         </div>
       </div>
